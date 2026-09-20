@@ -1,7 +1,7 @@
 #include <iostream> 
 
 int main() {
-	// Fields: id, topic, genre, mood, label 
+	// Fields: id, topic, genre, mood, label from the SONICS: Real vs Fake Songs Detection Dataset at https://www.kaggle.com/datasets/awsaf49/sonics-dataset/data
 	int ids[5] {54113, 53851, 53853, 53854, 53855}; // 1st, 2nd, 4th, 6th, 8th 
 	std::string topics[5] {"star trek (TV)", "athena (myth)", "overcoming adversity", "dracula (literature)", "isaac newton (scientist)"}; 
 	std::string genre[5] {"lounge", "salsa", "grunge", "christian rock", "grunge"};
