@@ -1,20 +1,56 @@
 #include <iostream> 
+#include <fstream>
+#include <sstream> 
+#include <string> 
+#include <vector>
 
 int main() {
-	// Fields: id, topic, genre, mood, label from the SONICS: Real vs Fake Songs Detection Dataset at https://www.kaggle.com/datasets/awsaf49/sonics-dataset/data
-	int ids[5] {54113, 53851, 53853, 53854, 53855}; // 1st, 2nd, 4th, 6th, 8th 
-	std::string topics[5] {"star trek (TV)", "athena (myth)", "overcoming adversity", "dracula (literature)", "isaac newton (scientist)"}; 
-	std::string genre[5] {"lounge", "salsa", "grunge", "christian rock", "grunge"};
-	std::string mood[5] = {"mournful", "tense", "introspective", "motivated", "gloomy"}; 
-	std::string label[5] = {"full fake", "full fake", "full fake", "full fake", "full fake"}; 
+	std::ifstream inputFile("penguins_size.csv"); 
 	
-	std::string * ptr = &genre[0]; 
-	int elem = sizeof(ids)/sizeof(ids[0]);
+	std::string columnLabels; 
+	std::vector<std::string> columns; 
+
+	// Reading column labels (first line) from inputFile 
+	if (std::getline(inputFile, columnLabels)) {
+		std::stringstream ss(columnLabels);
+		std::string columnName; 
+		while (std::getline(ss, columnName, ',')) {
+			columns.push_back(columnName); 
+		}
+	}
 	
-	// Iterating through 3 of 5 fields for all 5 records, using both index and pointer notation 
-	// Because the fields are different lengths, the spacing is inconsistent 
-	for (int i = 0; i < elem; i++) {
-		std::cout << "ID:" << ids[i] << " | Topic: " << topics[i] << " | Genre: " << *ptr++ << std::endl; 
+	std::string line; 
+	std::vector<std::vector<std::string>> records; 
+	
+	// Reading in the first 8 records as a 2 dimensional array (std::vector) 
+	for (int i = 0; i < 8; i++) {
+		std::getline(inputFile, line);
+		
+		std::stringstream ss(line);
+		std::string cell; 
+		std::vector<std::string> singleRow;
+		
+		while (std::getline(ss, cell, ',')) {
+			singleRow.push_back(cell);
+		}
+		records.push_back(singleRow); 
+	}
+	
+	// Iterating through column labels using pointers
+	std::string * ptr = &columns[0]; 
+	std::cout << "First four fields:" << std::endl;
+	for (int cl = 0; cl < 4; cl++) {
+		if (cl > 0) std::cout << ", ";
+		std::cout << *ptr++; 
+	}
+	
+	std::cout << "\n" << "\n"; 
+
+	for (size_t r = 0; r < records.size(); r++) {
+		for (size_t e = 0; e < 4; e++) {
+			std::cout << columns[e] << ": " << records[r][e] << std::endl; 
+		}
+		std::cout << "\n"; 
 	}
 	
 	return 0; 
