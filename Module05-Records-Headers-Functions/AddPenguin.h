@@ -4,8 +4,8 @@
 
 	void addPenguinRecord(); 
 	
-	// void displayPenguins();
+	void displayPenguins();
 	
-	// void averageCulmenLength(); 
+	void averageCulmenLength(); 
 
 #endif 
