@@ -1,6 +1,3 @@
-/* NEEDS PRIVATE DATA MEMEBERS, A CONSTRUCTOR, AT LEAST TWO MEMBER FUNCTIONS METHODS, AN ACCESSOR, A MUTATOR */
-/* Private data members: Phase on SineOscillator; targetFrequency, gate, currentGain etc on Voice. Constructor: on Voice class. Accessor/getter: in Voice class's
-renderNextSample method, whenever atomic variables are "loaded" IE read off of. Mutator: changeRampSpeed artificial addition*/
 #define _USE_MATH_DEFINES
 #include <iostream>
 #include <cstdint> 
@@ -14,11 +11,9 @@ class SineOscillator {
 		float getSample(float freq) {
 			float phaseIncrement = (freq * 2.0f * M_PI) / sampleRate;
 			
-			// Generate current sample
 			float rawSine = std::sin(phase);
 			
 			phase += phaseIncrement;
-			// If phase has been incremented above 2pi, set back to zero 
 			if (phase >= 2.0f * M_PI) {
 				phase -= 2.0f * M_PI; 
 			}
