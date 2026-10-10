@@ -1,0 +1,45 @@
+C:\class\CPlusPlus-App-Design\Module07-Security-Search>main.exe
+ID: 0001
+Name: Analind Angalee
+Title: Director of Operations
+
+ID: 0002
+Name: Whirlwindia Wintress
+Title: CEO of Bosses
+
+ID: 0003
+Name: Lint Prospero
+Title: Chief Special Ops Recruitment Officer
+
+ID: 0001
+Name: Analind Angalee
+Title: Director of Operations
+
+ID: 0002
+Name: Whirlwindia Wintress
+Title: CEO of Bosses
+
+ID: 0003
+Name: Lint Prospero
+Title: Chief Special Ops Recruitment Officer
+
+ID: 0004
+Name: Auntie Hallifax
+Title: Costumes Inspector
+
+Enter the ID number of the record you would like to delete:
+2
+You would like to delete record number 2 associated with Whirlwindia Wintress and CEO of Bosses?
+Enter 'Y' to confirm, and any other key to delete another record:
+Y
+ID: 0001
+Name: Analind Angalee
+Title: Director of Operations
+
+ID: 0003
+Name: Lint Prospero
+Title: Chief Special Ops Recruitment Officer
+
+ID: 0004
+Name: Auntie Hallifax
+Title: Costumes Inspector
